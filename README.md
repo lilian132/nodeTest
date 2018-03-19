@@ -214,4 +214,5 @@ server.listen(8000, function(){
 ## LINK
 
 github源码：[https://github.com/zc95/nodeTest](https://github.com/zc95/nodeTest)
+博客：[https://zc95.github.io/2018/03/19/nodeTest/](https://zc95.github.io/2018/03/19/nodeTest/)
 
