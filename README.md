@@ -108,7 +108,7 @@ server.listen(8000, function(){
 
 ```
 
-同时在统计目录中创建一个名为 `index.html` 的文件，写入以下代码：
+同时在同级目录中创建一个名为 `index.html` 的文件，写入以下代码：
 
 ```javascript
 <! doctype <!DOCTYPE html>
