@@ -1,9 +1,9 @@
 ---
-title: nodejs构建HTTP服务器
+title: Node.js构建HTTP服务器
 categories:
   - 技术篇
 tags:
-  - node.js
+  - Node.js
   - 本地服务器
 comments: true
 toc: true
