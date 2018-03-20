@@ -1,10 +1,10 @@
 ---
-title: nodejs搭建本地服务器环境
+title: nodejs构建HTTP服务器
 categories:
   - 技术篇
 tags:
   - node.js
-  - 本地服务器
+  - HTTP服务器
 comments: true
 toc: true
 date: 2018-03-19 20:29:42
