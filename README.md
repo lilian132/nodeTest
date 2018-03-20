@@ -1,4 +1,17 @@
+---
+title: nodejs搭建本地服务器环境
+categories:
+  - 技术篇
+tags:
+  - node.js
+  - 本地服务器
+comments: true
+toc: true
+date: 2018-03-19 20:29:42
+thumbnail:
 
+
+---
 
 Node.js® is a JavaScript runtime built on [Chrome's V8 JavaScript engine](https://developers.google.com/v8/). Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, [npm](https://www.npmjs.com/), is the largest ecosystem of open source libraries in the world.
 
@@ -29,11 +42,13 @@ Node.js® is a JavaScript runtime built on [Chrome's V8 JavaScript engine](https
 
 在如今web大行其道的时代，支撑无数网页运行的正是HTTP服务器。Node.js之所以受到大量web开发者的青睐，与Node.js有能力自己构建服务器是分不开的。
 
-1. 在根目录下新建一个 `nodetest` 的文件夹
+1. 在根目录下新建 `nodetest` 文件夹
 
-2. 在 `nodetest` 下新建一个 `server.js` 的文件
+2. 在 `nodetest` 下安装 `HTTP` 文件夹
 
-3. 拷贝粘贴这段代码，保存：
+3. 在 `HTTP` 文件夹下新建一个 `server.js` 的文件
+
+4. 拷贝粘贴这段代码，保存：
 
    ```javascript
    /**
@@ -61,15 +76,13 @@ Node.js® is a JavaScript runtime built on [Chrome's V8 JavaScript engine](https
    })
    ```
 
-4. 打开终端 输入 `cd nodetest ` 回车，`ls` 回车，确保server.js在文件夹nodetest下
+5. 打开终端 输入 `cd nodetest/HTTP` 
 
-5. 输入 `node server.js` 回车，返回 `Creat server on http://127.0.0.1:8000/`
+6. 输入 `node server.js` ，返回 `Creat server on http://127.0.0.1:8000/`
 
-6. 打开浏览器输入 `http://127.0.0.1:8000/` 或者 `http://localhost:8000` 
+7. 打开浏览器输入 `http://127.0.0.1:8000/` 或者 `http://localhost:8000` 
 
-7. Welcome to Nodejs
-
-
+8. Welcome to Nodejs
 
 ## 文件模块
 
@@ -105,7 +118,6 @@ var server = http.createServer(function(request, response) {
 server.listen(8000, function(){
     console.log("Creat server on http://127.0.0.1:8000/");
 })
-
 ```
 
 同时在同级目录中创建一个名为 `index.html` 的文件，写入以下代码：
@@ -204,7 +216,6 @@ var server = http.createServer(function(request, response) {
 server.listen(8000, function(){
     console.log("Creat server on http://127.0.0.1:8000/");
 })
-
 ```
 
 这里通过对路径处理判断来返回不同的资源，从而做到简单的路由控制。
@@ -214,5 +225,4 @@ server.listen(8000, function(){
 ## LINK
 
 github源码：[https://github.com/zc95/nodeTest](https://github.com/zc95/nodeTest)
-博客：[https://zc95.github.io/2018/03/19/nodeTest/](https://zc95.github.io/2018/03/19/nodeTest/)
 
