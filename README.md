@@ -16,7 +16,7 @@ Node.js® is a JavaScript runtime built on [Chrome's V8 JavaScript engine](https
 3. next到底
 4. 打开终端，输入 `node -v` ，回车，如果出现类似 `v6.11.4` 的版本号就说明安装成功
 
-## 构建一个HTTP服务器
+## Node.js构建HTTP服务器
 
 博客：[https://zc95.github.io/2018/03/19/nodejs-HTTP/](https://zc95.github.io/2018/03/19/nodejs-HTTP/)
 
