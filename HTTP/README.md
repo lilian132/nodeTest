@@ -26,7 +26,7 @@ Node.js® is a JavaScript runtime built on [Chrome's V8 JavaScript engine](https
 简单的说，Node.js 就是运行在服务端的 JavaScript ，可以稳定地在各种平台下运行，包括Linux、Windows、Mac OS X、Sun Os 和FreeBSD等众多平台。
 
 
-
+<!-- more -->
 
 
 ## 安装nodejs
@@ -36,7 +36,7 @@ Node.js® is a JavaScript runtime built on [Chrome's V8 JavaScript engine](https
 3. next到底
 4. 打开终端，输入 `node -v` ，回车，如果出现类似 `v6.11.4` 的版本号就说明安装成功
 
-<!-- more -->
+
 
 ## 构建一个HTTP服务器
 
@@ -224,5 +224,6 @@ server.listen(8000, function(){
 
 ## LINK
 
-github源码：[https://github.com/zc95/nodeTest/tree/master/HTTP](https://github.com/zc95/nodeTest/tree/master/HTTP)
+1. 本章github源码：[https://github.com/zc95/nodeTest/tree/master/HTTP](https://github.com/zc95/nodeTest/tree/master/HTTP)
+2. 《Node.js构建TCP服务器和TCP客户端》：[https://zc95.github.io/2018/03/20/nodejs-TCP/](https://zc95.github.io/2018/03/20/nodejs-TCP/)
 
