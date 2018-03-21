@@ -9,6 +9,8 @@ comments: true
 toc: true
 date: 2018-03-20 21:56:12
 
+
+
 ---
 
 网络是通信互联网的基础，Node.js提供了net、http、dgram模块、分别用来实现TCP、HTTP、UDP的通信。上次的文章[《Node.js构建HTTP服务器》](https://zc95.github.io/2018/03/19/nodejs-HTTP/)实现了HTTP的通信，这篇文章说一说TCP服务器的构建。
@@ -173,7 +175,9 @@ server.listen(8000,function(){
 })
 ```
 
+你可以打开多个网页输入localhost:8000来测试这段代码，也可以用Telnet命令 `telnet localhost 8000` 来连接这个TCP服务器（上一篇文章有提到如何用Homebrew安装Telnet：[《Homebrew》](https://zc95.github.io/2018/03/20/Homebrew/)）。
 
+![](https://ws4.sinaimg.cn/large/006tKfTcgy1fpkqytum6zj31kw0s7toa.jpg)
 
 
 
@@ -218,7 +222,13 @@ server.listen(8000,function(){
 })
 ```
 
+下图中TCP服务器给客户端发送了字符串：
 
+> the server address is{"address":"::","family":"IPv6","port":8000}has send
+
+客户端给TCP服务器发送了字符串 `hello TCP!` 和字节数。
+
+![](https://ws1.sinaimg.cn/large/006tKfTcgy1fpkr5446asj31kw0p5gvz.jpg)
 
 ## LINK
 
