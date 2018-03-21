@@ -1,5 +1,5 @@
 ---
-title: Node.js构建TCP服务器
+title: Node.js构建TCP服务器和TCP客户端
 categories:
   - 技术篇
 tags:
@@ -10,12 +10,13 @@ toc: true
 date: 2018-03-20 21:56:12
 
 
-
 ---
 
 网络是通信互联网的基础，Node.js提供了net、http、dgram模块、分别用来实现TCP、HTTP、UDP的通信。上次的文章[《Node.js构建HTTP服务器》](https://zc95.github.io/2018/03/19/nodejs-HTTP/)实现了HTTP的通信，这篇文章说一说TCP服务器的构建。
 
 ## 用Node.js创建TCP服务器
+
+### 构建TCP服务器
 
 为了使用Node.js创建TCP服务器，首先要使用require("net")来加载net模块，然后使用net模块的createServer方法就可以轻松地创建一个TCP服务器。
 <!-- more -->
@@ -39,7 +40,7 @@ server.listen(8000, function(){
 })
 ```
 
-运行这段代码并访问了[http://127.0.0.1:8000/](http://127.0.0.1:8000/)的话会看到控制台打印了"someone connects"，表面已经成功连接到这个创建的TCP服务器。
+运行这段代码并访问了[http://127.0.0.1:8000/](http://127.0.0.1:8000/)的话会看到控制台打印了"someone connects"，表明已经成功连接到这个创建的TCP服务器。
 
 ------
 
@@ -107,7 +108,7 @@ server.on("error", function (err) {
 
 
 
-## 查看服务器监听的地址
+### 查看服务器监听的地址
 
 当创建了一个TCP服务器后，可以通过server.address()方法来查看这个TCP服务器监听的地址，并返回一个JSON对象。这个对象的属性有：
 
@@ -146,7 +147,7 @@ server.listen(8000,function(){
 
 
 
-## 连接服务器的客户端数量
+### 连接服务器的客户端数量
 
 创建一个TCP服务器后，可以通过server.getConnections()方法获取连接这个TCP服务器的客户端数量。除此之外，也可以通过maxConnections属性来设置这个服务器的最大连接数量，当连接数量超过最大值时，服务器将拒绝新的连接。
 
@@ -181,7 +182,7 @@ server.listen(8000,function(){
 
 
 
-## 服务器和客户端之间的通信
+### 服务器和客户端之间的通信
 
 利用socket.write()可以使TCP服务器发送数据给客户端；
 
@@ -230,6 +231,69 @@ server.listen(8000,function(){
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcgy1fpkr5446asj31kw0p5gvz.jpg)
 
+
+
+## 用Node.js创建TCP客户端
+
+### 构建TCP客户端
+
+上面说到用打开网页或者Telnet来访问TCP服务器，其实我们也可以用Node.js来构建一个TCP客户端，实现TCP客户端和TCP服务器的通信。
+
+为了使用Node.js创建TCP客户端，首先要使用require("net")来加载net模块，然后创建一个连接TCP客户端的socket对象即可：
+
+> /* 引入net模块 */
+>
+> var net = require("net");
+>
+> /* 创建TCP客户端 */
+>
+> var client = net.Socket();
+
+创建完socket对象后，使用socket对象的connect方法就可以连接一个TCP服务器。
+
+```javascript
+/**
+ * 构建TCP客户端
+ */
+
+/* 引入net模块 */
+var net = require("net");
+
+/* 创建TCP客户端 */
+var client = net.Socket();
+
+/* 设置连接的服务器 */
+client.connect(8000, '127.0.0.1', function () {
+    console.log("connect the server");
+
+    /* 向服务器发送数据 */
+    client.write("message from client");
+})
+
+/* 监听服务器传来的data数据 */
+client.on("data", function (data) {
+    console.log("the data of server is " + data.toString());
+})
+
+/* 监听end事件 */
+client.on("end", function () {
+    console.log("data end");
+})
+```
+
+
+
+### TCP客户端和TCP服务器的通信
+
+运行 <a href="#服务器和客户端之间的通信">这段代码</a> 之后再运行 <a href="#构建TCP客户端">这段代码</a> ，可以发现服务器已经接收到客户端的数据，客户端也已经接收到服务端的数据。
+
+![](https://ws4.sinaimg.cn/large/006tKfTcgy1fpkso73cqdj31kw0o27bv.jpg)
+
+
+
 ## LINK
 
-github源码：[https://github.com/zc95/nodeTest/tree/master/TCP](https://github.com/zc95/nodeTest/tree/master/TCP)
+1. 本章github源码：[https://github.com/zc95/nodeTest/tree/master/TCP](https://github.com/zc95/nodeTest/tree/master/TCP)
+2. 《Node.js构建HTTP服务器》：[https://zc95.github.io/2018/03/19/nodejs-HTTP/](https://zc95.github.io/2018/03/19/nodejs-HTTP/)
+3. 用Homebrew安装Telnet：[https://zc95.github.io/2018/03/20/Homebrew/](https://zc95.github.io/2018/03/20/Homebrew/)
+
