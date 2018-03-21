@@ -1,7 +1,3 @@
-Node.js® is a JavaScript runtime built on [Chrome's V8 JavaScript engine](https://developers.google.com/v8/). Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, [npm](https://www.npmjs.com/), is the largest ecosystem of open source libraries in the world.
-
-
-
 ## Node.js简介
 
 `Node.js` 是一个基于 Google Chrome V8 引擎 的 JavaScript 运行环境。Node.js使用后多种先进的技术，其中包括 事件驱动、非阻塞 I/O 模型，使其轻量又高效，受到众多开发者的追捧。
